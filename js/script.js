@@ -10,7 +10,17 @@ buttons.map(button => {
                 outPut.innerText = '';
                 break;
             case 'DEL':
-                outPut.innerText = outPut.innerText.slice(0, -1);
+                if (outPut.innerText) {
+                    outPut.innerText = outPut.innerText.slice(0, -1);
+                }
+                break;
+
+            case '=':
+                try {
+                    outPut.innerText = eval(outPut.innerText)
+                } catch {
+                    outPut.innerText = 'Error!'
+                }
                 break;
 
             default: outPut.innerText += e.target.innerText;
